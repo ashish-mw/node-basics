@@ -12,6 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^5.0.0"
+    "moment": "^2.29.1"
   }
 }

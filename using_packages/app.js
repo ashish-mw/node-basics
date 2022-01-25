@@ -1,3 +1,8 @@
-const name = "Hello";
+const moment = require("moment");
 
-console.log(name);
+const name = "Hello";
+const date = moment().format("DD/MM/YYYY hh:mm a");
+
+console.log(date);
+
+// 25/01/2022 12:45 PM
