@@ -2,7 +2,21 @@ const http = require("http");
 const port = 8080;
 
 function logger(req) {
-  console.log(`${new Date().toISOString()} - ${req.url} : ${req.method}`);
+  console.log(`${new Date()} - ${req.url} : ${req.method}`);
+}
+
+function getMovies(req, res) {
+  const json = {
+    message: "Movies",
+  };
+  return json;
+}
+
+function getSports(req, res) {
+  const json = {
+    message: "Sports",
+  };
+  return json;
 }
 
 const server = http.createServer(function (req, res) {
@@ -13,7 +27,13 @@ const server = http.createServer(function (req, res) {
   };
   res.setHeader("Content-type", "application/json");
   // res.setHeader("Content-type", "text/html");
-  res.write(JSON.stringify(json));
+  let result = {};
+  if (req.url == "/sports") {
+    result = getSports();
+  } else if (req.url == "/movies") {
+    result = getMovies();
+  }
+  res.write(JSON.stringify(result));
   res.end();
 });
 
